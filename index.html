@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shri Yoga Sadhana Studio | Rohini, Delhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #5B2A86;
+    --plum-light: #7B3FB0;
+    --plum-dark: #3D1A5A;
+    --rose-gold: #D8A47F;
+    --rose-gold-light: #EAC4A8;
+    --lavender: #E9D5FF;
+    --pearl: #FAFAF8;
+    --charcoal: #1F2937;
+    --charcoal-light: #374151;
+    --white: #FFFFFF;
+    --text-muted: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--pearl);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 1.2rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+  nav.scrolled {
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 30px rgba(91,42,134,0.08);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.4rem;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  nav.scrolled .nav-logo { color: var(--plum); }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  nav.scrolled .nav-links a { color: var(--charcoal-light); }
+  .nav-links a:hover { color: var(--rose-gold) !important; }
+  .nav-cta {
+    background: var(--rose-gold);
+    color: var(--white) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: background 0.3s, transform 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--plum) !important; transform: translateY(-1px); }
+  .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .nav-hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: 0.3s; display: block; }
+  nav.scrolled .nav-hamburger span { background: var(--charcoal); }
+
+  /* ─── HERO ─── */
+  .hero {
+    height: 100vh; min-height: 700px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1050 40%, #4a1878 70%, #5B2A86 100%);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1800&q=80') center/cover no-repeat;
+    opacity: 0.25;
+    animation: heroZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(30,8,60,0.5) 0%, rgba(91,42,134,0.3) 50%, rgba(30,8,60,0.7) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 860px; padding: 0 2rem;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rose-gold-light);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 30px; height: 1px; background: var(--rose-gold);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900; line-height: 1.05;
+    color: var(--white); margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+  .hero h1 span { color: var(--rose-gold); font-style: italic; }
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255,255,255,0.75);
+    max-width: 600px; margin: 0 auto 2.5rem;
+    line-height: 1.8; font-weight: 400;
+    animation: fadeUp 0.8s ease 0.6s both;
+  }
+  .hero-buttons {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.8s ease 0.8s both;
+  }
+  .btn-primary {
+    background: var(--rose-gold);
+    color: white; border: none;
+    padding: 0.9rem 2.2rem; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 700;
+    letter-spacing: 0.05em; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { background: #c8906a; transform: translateY(-3px); box-shadow: 0 12px 35px rgba(216,164,127,0.4); }
+  .btn-outline {
+    background: transparent;
+    color: white; border: 1.5px solid rgba(255,255,255,0.5);
+    padding: 0.9rem 2.2rem; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 0.05em; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: all 0.3s ease; backdrop-filter: blur(4px);
+  }
+  .btn-outline:hover { border-color: var(--rose-gold); color: var(--rose-gold); transform: translateY(-3px); }
+  .btn-whatsapp {
+    background: #25D366; color: white; border: none;
+    padding: 0.9rem 2rem; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 700;
+    cursor: pointer; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  .btn-whatsapp:hover { background: #1ebe5a; transform: translateY(-3px); box-shadow: 0 12px 35px rgba(37,211,102,0.3); }
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 2;
+  }
+  .hero-scroll span { display: block; width: 1px; height: 60px; background: rgba(255,255,255,0.4); margin: 0 auto; }
+  .hero-scroll::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--rose-gold); margin: 0 auto 8px; }
+  @keyframes bounce { 0%,100% { opacity: 0.4; transform: translateX(-50%) translateY(0); } 50% { opacity: 1; transform: translateX(-50%) translateY(8px); } }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+
+  /* ─── STATS STRIP ─── */
+  .stats-strip {
+    background: var(--plum);
+    padding: 2.5rem 4rem;
+    display: flex; justify-content: center; gap: 5rem; flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; color: white; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 700;
+    color: var(--rose-gold); display: block;
+  }
+  .stat-label { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75; margin-top: 0.3rem; }
+
+  /* ─── SECTION DEFAULTS ─── */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--plum); background: var(--lavender);
+    padding: 0.4rem 1rem; border-radius: 100px;
+    margin-bottom: 1.2rem;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800; line-height: 1.15;
+    color: var(--charcoal); margin-bottom: 1.2rem;
+  }
+  h2.section-title span { color: var(--plum); font-style: italic; }
+  .section-body {
+    font-size: 1.05rem; color: var(--text-muted);
+    line-height: 1.9; max-width: 600px;
+  }
+
+  /* ─── AERIAL SHOWCASE ─── */
+  .aerial-showcase {
+    background: var(--charcoal);
+    padding: 0; overflow: hidden;
+  }
+  .aerial-hero-img {
+    width: 100%; height: 85vh; min-height: 500px;
+    object-fit: cover; display: block;
+    opacity: 0.7;
+  }
+  .aerial-text-overlay {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center; color: white; z-index: 2;
+    width: 90%; max-width: 800px;
+  }
+  .aerial-wrapper { position: relative; }
+  .aerial-text-overlay h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900; color: white; line-height: 1.1;
+  }
+  .aerial-text-overlay h2 span { color: var(--rose-gold); font-style: italic; }
+  .aerial-text-overlay p { font-size: 1.1rem; color: rgba(255,255,255,0.8); margin-top: 1rem; line-height: 1.8; }
+  .aerial-features {
+    background: var(--charcoal);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0;
+  }
+  .aerial-feat {
+    padding: 2.5rem 2rem; border-right: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    text-align: center; transition: background 0.3s;
+  }
+  .aerial-feat:hover { background: rgba(91,42,134,0.3); }
+  .aerial-feat-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .aerial-feat h4 { font-size: 0.95rem; font-weight: 600; color: var(--rose-gold-light); margin-bottom: 0.4rem; }
+  .aerial-feat p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  /* ─── ABOUT ─── */
+  .about-section { background: var(--pearl); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .about-img-wrap { position: relative; }
+  .about-img-wrap img {
+    width: 100%; height: 600px; object-fit: cover;
+    border-radius: 24px; display: block;
+  }
+  .about-img-badge {
+    position: absolute; bottom: -1.5rem; right: -1.5rem;
+    background: var(--plum);
+    color: white; padding: 1.5rem 2rem;
+    border-radius: 16px; text-align: center;
+    box-shadow: 0 20px 60px rgba(91,42,134,0.3);
+  }
+  .about-img-badge .big { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--rose-gold); }
+  .about-img-badge .sm { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+
+  /* ─── PROGRAMS ─── */
+  .programs-section { background: white; }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .program-card {
+    position: relative; overflow: hidden;
+    border-radius: 20px; cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    height: 340px;
+  }
+  .program-card:hover { transform: translateY(-8px); box-shadow: 0 30px 70px rgba(91,42,134,0.2); }
+  .program-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .program-card:hover img { transform: scale(1.08); }
+  .program-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(30,8,60,0.92) 30%, rgba(30,8,60,0.2) 80%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1.8rem;
+  }
+  .program-tag {
+    display: inline-block;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rose-gold); background: rgba(216,164,127,0.15);
+    border: 1px solid rgba(216,164,127,0.3);
+    padding: 0.3rem 0.8rem; border-radius: 100px;
+    margin-bottom: 0.7rem; width: fit-content;
+  }
+  .program-card-overlay h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .program-card-overlay p { font-size: 0.8rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  .program-arrow {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1rem;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .program-card:hover .program-arrow { opacity: 1; }
+
+  /* ─── BODY BENEFITS ─── */
+  .benefits-section { background: var(--charcoal); }
+  .benefits-section .section-title { color: white; }
+  .benefits-inner { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 3rem; align-items: center; margin-top: 4rem; }
+  .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .benefit-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem; border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer; transition: all 0.3s ease;
+    color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 500;
+  }
+  .benefit-item:hover, .benefit-item.active {
+    background: rgba(91,42,134,0.35);
+    border-color: rgba(91,42,134,0.6);
+    color: white; transform: translateX(4px);
+  }
+  .benefit-item.right-side:hover, .benefit-item.right-side.active { transform: translateX(-4px); }
+  .benefit-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .body-silhouette-wrap {
+    display: flex; justify-content: center; position: relative;
+  }
+  .body-svg { width: 160px; height: 340px; }
+  .glow-ring {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,42,134,0.25) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity:0.5; transform: translate(-50%,-50%) scale(1); } 50% { opacity:1; transform: translate(-50%,-50%) scale(1.1); } }
+
+  /* ─── JOURNEY TIMELINE ─── */
+  .journey-section { background: var(--pearl); }
+  .journey-timeline { max-width: 700px; margin: 4rem auto 0; position: relative; }
+  .journey-timeline::before {
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, transparent, var(--plum) 20%, var(--rose-gold) 80%, transparent);
+    transform: translateX(-50%);
+  }
+  .journey-step {
+    display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .journey-step:nth-child(even) { flex-direction: row-reverse; text-align: right; }
+  .journey-step-content { flex: 1; }
+  .journey-step-dot {
+    width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+    background: var(--plum);
+    border: 3px solid var(--rose-gold);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-family: 'Playfair Display', serif;
+    font-size: 0.75rem; font-weight: 700;
+    position: relative; z-index: 1;
+    box-shadow: 0 0 0 8px rgba(91,42,134,0.1);
+  }
+  .journey-step-num { font-size: 0.65rem; color: var(--rose-gold); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 0.3rem; }
+  .journey-step-content h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--charcoal); margin-bottom: 0.4rem; }
+  .journey-step-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ─── GALLERY ─── */
+  .gallery-section { background: var(--charcoal); padding-bottom: 5rem; }
+  .gallery-section .section-title { color: white; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 12px; margin-top: 3rem;
+  }
+  .gallery-item {
+    overflow: hidden; border-radius: 14px; cursor: pointer;
+    position: relative;
+  }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; height: 500px; }
+  .gallery-item:nth-child(2) { height: 240px; }
+  .gallery-item:nth-child(3) { height: 240px; }
+  .gallery-item:nth-child(4) { height: 240px; }
+  .gallery-item:nth-child(5) { height: 240px; }
+  .gallery-item:nth-child(6) { grid-column: span 2; height: 240px; }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: rgba(91,42,134,0);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s;
+  }
+  .gallery-item:hover .gallery-overlay { background: rgba(91,42,134,0.4); }
+  .gallery-overlay span { color: white; font-size: 1.5rem; opacity: 0; transition: opacity 0.3s; }
+  .gallery-item:hover .gallery-overlay span { opacity: 1; }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-section { background: var(--pearl); }
+  .testimonials-header { text-align: center; margin-bottom: 3.5rem; }
+  .rating-display { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem; }
+  .stars { color: #F59E0B; font-size: 1.3rem; letter-spacing: 2px; }
+  .rating-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--plum); }
+  .review-count { font-size: 0.85rem; color: var(--text-muted); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .testimonial-card {
+    background: white;
+    border: 1px solid rgba(91,42,134,0.1);
+    border-radius: 20px; padding: 2rem;
+    position: relative; transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(91,42,134,0.12); }
+  .testimonial-card::before {
+    content: '"'; position: absolute; top: 1.2rem; right: 1.8rem;
+    font-family: 'Playfair Display', serif; font-size: 5rem; line-height: 1;
+    color: var(--lavender); font-weight: 900;
+  }
+  .testimonial-stars { color: #F59E0B; font-size: 0.85rem; margin-bottom: 1rem; }
+  .testimonial-text { font-size: 0.95rem; color: var(--charcoal-light); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+  .author-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--plum), var(--rose-gold));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .author-name { font-weight: 600; font-size: 0.9rem; color: var(--charcoal); }
+  .author-detail { font-size: 0.78rem; color: var(--text-muted); }
+
+  /* ─── INSTAGRAM ─── */
+  .instagram-section { background: white; text-align: center; }
+  .instagram-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 3rem; }
+  .insta-item {
+    aspect-ratio: 1; overflow: hidden; border-radius: 10px;
+    position: relative; cursor: pointer;
+  }
+  .insta-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .insta-item:hover img { transform: scale(1.08); }
+  .insta-overlay {
+    position: absolute; inset: 0;
+    background: rgba(91,42,134,0.7);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .insta-item:hover .insta-overlay { opacity: 1; }
+  .insta-overlay svg { color: white; }
+  .instagram-handle {
+    margin-top: 2rem; font-size: 1.1rem; color: var(--plum);
+    font-weight: 600; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: color 0.3s;
+  }
+  .instagram-handle:hover { color: var(--rose-gold); }
+
+  /* ─── LOCATION ─── */
+  .location-section { background: var(--lavender); }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .map-frame { border-radius: 20px; overflow: hidden; height: 400px; box-shadow: 0 25px 70px rgba(91,42,134,0.2); }
+  .map-frame iframe { width: 100%; height: 100%; border: none; }
+  .location-info h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 800; color: var(--charcoal); margin-bottom: 1.5rem; }
+  .address-block {
+    background: white; border-radius: 16px; padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(91,42,134,0.1);
+  }
+  .address-block p { font-size: 0.95rem; color: var(--charcoal-light); line-height: 2; }
+  .location-btns { display: flex; flex-direction: column; gap: 0.8rem; }
+  .loc-btn {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 0.9rem 1.5rem; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 600;
+    text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none;
+  }
+  .loc-btn-primary { background: var(--plum); color: white; }
+  .loc-btn-primary:hover { background: var(--plum-dark); transform: translateX(4px); }
+  .loc-btn-call { background: var(--charcoal); color: white; }
+  .loc-btn-call:hover { background: var(--charcoal-light); transform: translateX(4px); }
+  .loc-btn-wa { background: #25D366; color: white; }
+  .loc-btn-wa:hover { background: #1ebe5a; transform: translateX(4px); }
+
+  /* ─── CTA SECTION ─── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--plum-dark) 0%, var(--plum) 50%, #7B3FB0 100%);
+    text-align: center; padding: 7rem 2rem;
+  }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,5vw,3.5rem); font-weight: 900; color: white; margin-bottom: 1.2rem; }
+  .cta-section h2 span { color: var(--rose-gold); font-style: italic; }
+  .cta-section p { color: rgba(255,255,255,0.75); font-size: 1.1rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.8; }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    padding: 4rem 2rem 2rem; color: rgba(255,255,255,0.6);
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto 3rem; }
+  .footer-brand .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 1rem; display: block; }
+  .footer-brand p { font-size: 0.9rem; line-height: 1.8; max-width: 300px; }
+  footer h4 { color: white; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; margin-bottom: 1.2rem; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 0.6rem; }
+  footer ul li a { font-size: 0.9rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+  footer ul li a:hover { color: var(--rose-gold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem; text-align: center; font-size: 0.82rem; max-width: 1200px; margin: 0 auto; }
+
+  /* ─── FLOATING WHATSAPP ─── */
+  .wa-float {
+    position: fixed; bottom: 5.5rem; right: 1.5rem; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366; color: white;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 1.7rem;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: waPulse 2.5s ease-in-out infinite;
+  }
+  .wa-float:hover { transform: scale(1.12); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
+  @keyframes waPulse { 0%,100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4); } 50% { box-shadow: 0 8px 30px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0.1); } }
+
+  /* ─── MOBILE BOTTOM NAV ─── */
+  .mobile-nav {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(250,250,248,0.97);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(91,42,134,0.1);
+    padding: 0.5rem 0 0.8rem;
+  }
+  .mobile-nav-inner { display: flex; justify-content: space-around; align-items: center; }
+  .mnav-item {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 3px; text-decoration: none; padding: 0.3rem 1rem;
+    color: var(--text-muted); transition: color 0.2s;
+  }
+  .mnav-item.active, .mnav-item:hover { color: var(--plum); }
+  .mnav-icon { font-size: 1.3rem; }
+  .mnav-label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+  .mnav-book {
+    background: var(--plum); color: white !important;
+    border-radius: 14px; padding: 0.5rem 1.2rem !important;
+  }
+
+  /* ─── MOBILE MENU ─── */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: var(--plum-dark);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 2.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; color: white; text-decoration: none;
+    transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: var(--rose-gold); }
+  .mobile-menu-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    font-size: 2rem; color: white; cursor: pointer; background: none; border: none;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-img-wrap img { height: 400px; }
+    .about-img-badge { right: 0; bottom: -1rem; }
+    .location-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:nth-child(1) { grid-column: span 2; height: 350px; }
+    .gallery-item:nth-child(6) { grid-column: span 2; }
+    .benefits-inner { grid-template-columns: 1fr 1fr; }
+    .body-silhouette-wrap { display: none; }
+    .benefit-list { flex-direction: column; }
+    .instagram-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-nav { display: block; }
+    .wa-float { bottom: 5rem; right: 1rem; width: 50px; height: 50px; font-size: 1.4rem; }
+    section { padding: 4rem 1.5rem; }
+    .stats-strip { padding: 2rem 1.5rem; gap: 2.5rem; }
+    .programs-grid { grid-template-columns: 1fr 1fr; }
+    .program-card { height: 280px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:nth-child(1) { grid-column: span 2; height: 280px; }
+    .gallery-item:nth-child(6) { grid-column: span 2; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .benefits-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .journey-timeline::before { left: 28px; }
+    .journey-step { flex-direction: row !important; text-align: left !important; }
+    .journey-step-content { text-align: left !important; }
+    .instagram-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .programs-grid { grid-template-columns: 1fr; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-outline, .btn-whatsapp { width: 100%; justify-content: center; text-align: center; }
+    .cta-btns { flex-direction: column; align-items: center; }
+    nav { padding: 1rem 1.2rem; }
+    .nav-logo { font-size: 1.1rem; }
+    .stats-strip { flex-direction: column; gap: 1.5rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:nth-child(1), .gallery-item:nth-child(6) { grid-column: span 1; }
+    .gallery-item { height: 220px !important; }
+    .instagram-grid { grid-template-columns: repeat(2, 1fr); }
+    .location-btns { gap: 0.6rem; }
+    .aerial-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Shri Yoga Sadhana</a>
+  <ul class="nav-links">
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#aerial">Aerial Yoga</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#location">Find Us</a></li>
+    <li><a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20information%20about%20yoga%20and%20aerial%20yoga%20classes." class="nav-cta">Book Trial</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
+  <a href="#programs" onclick="toggleMenu()">Programs</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#aerial" onclick="toggleMenu()">Aerial Yoga</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#location" onclick="toggleMenu()">Find Us</a>
+  <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20information%20about%20yoga%20and%20aerial%20yoga%20classes." style="background: var(--rose-gold); padding: 0.8rem 2.5rem; border-radius: 100px; font-size: 1.2rem;">Book Trial Class</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Rohini, Delhi &nbsp;•&nbsp; Est. 2018 &nbsp;•&nbsp; Premium Yoga Studio</div>
+    <h1>Elevate Your Practice<br><span>Beyond The Mat</span></h1>
+    <p class="hero-sub">Discover yoga, aerial yoga, meditation, flexibility, strength, and mindful movement in a premium studio environment.</p>
+    <div class="hero-buttons">
+      <a href="#programs" class="btn-primary">Start Your Journey</a>
+      <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20to%20book%20a%20trial%20class." class="btn-outline">Book A Trial Class</a>
+      <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20information%20about%20yoga%20and%20aerial%20yoga%20classes." class="btn-whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span></span></div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item"><span class="stat-num">1500+</span><span class="stat-label">Students Transformed</span></div>
+  <div class="stat-item"><span class="stat-num">12+</span><span class="stat-label">Yoga Programs</span></div>
+  <div class="stat-item"><span class="stat-num">6+</span><span class="stat-label">Years of Excellence</span></div>
+  <div class="stat-item"><span class="stat-num">5.0★</span><span class="stat-label">66+ Google Reviews</span></div>
+  <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Certified Instructors</span></div>
+</div>
+
+<!-- AERIAL SHOWCASE -->
+<div class="aerial-showcase" id="aerial">
+  <div class="aerial-wrapper">
+    <img class="aerial-hero-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80" alt="Aerial Yoga">
+    <div class="aerial-text-overlay">
+      <div class="hero-eyebrow" style="color: var(--rose-gold-light); display:inline-flex;">✦ Signature Experience ✦</div>
+      <h2>Defy Gravity.<br><span>Discover Freedom.</span></h2>
+      <p>Delhi's most immersive aerial yoga experience. Hammock-based practice for flexibility, strength, and spinal decompression.</p>
+    </div>
+  </div>
+  <div class="aerial-features">
+    <div class="aerial-feat"><div class="aerial-feat-icon">🧘</div><h4>Anti-Gravity Yoga</h4><p>Float in silk hammocks and release tension from every joint</p></div>
+    <div class="aerial-feat"><div class="aerial-feat-icon">💪</div><h4>Core Strength</h4><p>Build deep core stability through aerial movements</p></div>
+    <div class="aerial-feat"><div class="aerial-feat-icon">🌿</div><h4>Spinal Release</h4><p>Decompress the spine naturally with inverted postures</p></div>
+    <div class="aerial-feat"><div class="aerial-feat-icon">🦋</div><h4>Flexibility</h4><p>Achieve depth in postures that feel impossible on the mat</p></div>
+    <div class="aerial-feat"><div class="aerial-feat-icon">🧠</div><h4>Mind-Body Flow</h4><p>Heightened proprioception and mindfulness in the air</p></div>
+    <div class="aerial-feat"><div class="aerial-feat-icon">✨</div><h4>All Levels Welcome</h4><p>Beginners to advanced — we guide every step</p></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal-left">
+        <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&q=80" alt="Studio Interior">
+        <div class="about-img-badge">
+          <div class="big">6+</div>
+          <div class="sm">Years of<br>Excellence</div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-tag">Our Story</div>
+        <h2 class="section-title">A Space Where<br>Movement Becomes <span>Meditation</span></h2>
+        <p class="section-body">Shri Yoga Sadhana Studio combines traditional yoga philosophy with modern movement practices, helping individuals improve flexibility, strength, balance, and inner wellbeing.</p>
+        <p class="section-body" style="margin-top:1rem;">Nestled in the heart of Rohini, our studio is a sanctuary where ancient wisdom meets contemporary wellness science. Every class is designed to transform not just your body, but your entire relationship with yourself.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:2.5rem;">
+          <div style="padding:1.2rem; background:var(--lavender); border-radius:14px;">
+            <div style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:900; color:var(--plum);">100%</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Certified Instructors</div>
+          </div>
+          <div style="padding:1.2rem; background:var(--lavender); border-radius:14px;">
+            <div style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:900; color:var(--plum);">12+</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Unique Programs</div>
+          </div>
+          <div style="padding:1.2rem; background:var(--lavender); border-radius:14px;">
+            <div style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:900; color:var(--plum);">Small</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Batch Sizes</div>
+          </div>
+          <div style="padding:1.2rem; background:var(--lavender); border-radius:14px;">
+            <div style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:900; color:var(--plum);">Daily</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Morning & Evening Classes</div>
+          </div>
+        </div>
+        <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20to%20know%20more%20about%20your%20studio." class="btn-primary" style="margin-top:2.5rem; display:inline-block;">Learn Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-section" id="programs">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:1rem;" class="reveal">
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Programs Crafted for<br><span>Every Journey</span></h2>
+      <p class="section-body" style="margin:0 auto;">Twelve carefully designed programs to meet you exactly where you are — and take you further than you imagined.</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="Traditional Yoga">
+        <div class="program-card-overlay">
+          <div class="program-tag">Foundation</div>
+          <h3>Traditional Yoga</h3>
+          <p>Hatha & Vinyasa-based classical yoga for all levels</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Aerial Yoga">
+        <div class="program-card-overlay">
+          <div class="program-tag">Signature</div>
+          <h3>Aerial Yoga</h3>
+          <p>Our most sought-after program — float, stretch, and soar</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Power Yoga">
+        <div class="program-card-overlay">
+          <div class="program-tag">Strength</div>
+          <h3>Power Yoga</h3>
+          <p>Dynamic, strength-building practice for the modern athlete</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Meditation">
+        <div class="program-card-overlay">
+          <div class="program-tag">Mind</div>
+          <h3>Meditation</h3>
+          <p>Guided mindfulness practices for clarity and inner peace</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=600&q=80" alt="Women's Wellness">
+        <div class="program-card-overlay">
+          <div class="program-tag">Wellness</div>
+          <h3>Women's Wellness</h3>
+          <p>Specially designed for women's health and hormonal balance</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=600&q=80" alt="Senior Yoga">
+        <div class="program-card-overlay">
+          <div class="program-tag">Gentle</div>
+          <h3>Senior Yoga</h3>
+          <p>Gentle, therapeutic movements for healthy aging and vitality</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1616699002805-0741e1e4a9c5?w=600&q=80" alt="Pranayama">
+        <div class="program-card-overlay">
+          <div class="program-tag">Breathwork</div>
+          <h3>Pranayama</h3>
+          <p>Ancient breathing techniques for energy and stress relief</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&q=80" alt="Flexibility Training">
+        <div class="program-card-overlay">
+          <div class="program-tag">Movement</div>
+          <h3>Flexibility Training</h3>
+          <p>Targeted stretching and mobility work for peak performance</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+      <div class="program-card reveal">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="Therapeutic Yoga">
+        <div class="program-card-overlay">
+          <div class="program-tag">Healing</div>
+          <h3>Therapeutic Yoga</h3>
+          <p>Targeted practice for back pain, stress, and chronic conditions</p>
+        </div>
+        <div class="program-arrow">→</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:3rem;" class="reveal">
+      <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs." class="btn-primary">View All Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits-section" id="benefits">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <div class="section-tag" style="background:rgba(233,213,255,0.15); color:var(--rose-gold-light);">Why Yoga</div>
+      <h2 class="section-title">How Yoga <span>Transforms</span><br>Your Body & Mind</h2>
+    </div>
+    <div class="benefits-inner">
+      <ul class="benefit-list">
+        <li class="benefit-item" data-benefit="flex"><span class="benefit-icon">🌀</span> Improved Flexibility</li>
+        <li class="benefit-item" data-benefit="posture"><span class="benefit-icon">🏛️</span> Better Posture</li>
+        <li class="benefit-item" data-benefit="stress"><span class="benefit-icon">🌊</span> Deep Stress Relief</li>
+        <li class="benefit-item" data-benefit="core"><span class="benefit-icon">⚡</span> Stronger Core</li>
+      </ul>
+      <div class="body-silhouette-wrap">
+        <div class="glow-ring"></div>
+        <svg class="body-svg" viewBox="0 0 160 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="35" r="28" fill="rgba(216,164,127,0.15)" stroke="#D8A47F" stroke-width="1.5"/>
+          <ellipse cx="80" cy="130" rx="35" ry="55" fill="rgba(91,42,134,0.15)" stroke="#7B3FB0" stroke-width="1.5"/>
+          <rect x="45" y="175" width="22" height="80" rx="10" fill="rgba(91,42,134,0.1)" stroke="#5B2A86" stroke-width="1.5"/>
+          <rect x="93" y="175" width="22" height="80" rx="10" fill="rgba(91,42,134,0.1)" stroke="#5B2A86" stroke-width="1.5"/>
+          <rect x="12" y="95" width="18" height="65" rx="9" fill="rgba(216,164,127,0.1)" stroke="#D8A47F" stroke-width="1.5"/>
+          <rect x="130" y="95" width="18" height="65" rx="9" fill="rgba(216,164,127,0.1)" stroke="#D8A47F" stroke-width="1.5"/>
+          <circle cx="80" cy="35" r="4" fill="#D8A47F" opacity="0.6"/>
+          <circle cx="80" cy="130" r="4" fill="#7B3FB0" opacity="0.6"/>
+        </svg>
+      </div>
+      <ul class="benefit-list">
+        <li class="benefit-item right-side" data-benefit="clarity"><span class="benefit-icon">🧠</span> Mental Clarity</li>
+        <li class="benefit-item right-side" data-benefit="weight"><span class="benefit-icon">🔥</span> Weight Management</li>
+        <li class="benefit-item right-side" data-benefit="balance"><span class="benefit-icon">⚖️</span> Improved Balance</li>
+        <li class="benefit-item right-side" data-benefit="sleep"><span class="benefit-icon">🌙</span> Better Sleep</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY TIMELINE -->
+<section class="journey-section" id="journey">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <div class="section-tag">The Path</div>
+      <h2 class="section-title">The Sadhana <span>Journey</span></h2>
+      <p class="section-body" style="margin:0 auto;">Six transformational stages from awareness to complete transformation.</p>
+    </div>
+    <div class="journey-timeline">
+      <div class="journey-step reveal">
+        <div class="journey-step-content">
+          <div class="journey-step-num">Stage 01</div>
+          <h3>Awareness</h3>
+          <p>Begin by tuning inward — understanding where you are and where you wish to go. Every transformation starts with a single breath of clarity.</p>
+        </div>
+        <div class="journey-step-dot">✦</div>
+      </div>
+      <div class="journey-step reveal">
+        <div class="journey-step-dot">✦</div>
+        <div class="journey-step-content">
+          <div class="journey-step-num">Stage 02</div>
+          <h3>Breathing</h3>
+          <p>Pranayama and breathwork anchor you in the present moment, activating the parasympathetic nervous system and quieting mental noise.</p>
+        </div>
+      </div>
+      <div class="journey-step reveal">
+        <div class="journey-step-content">
+          <div class="journey-step-num">Stage 03</div>
+          <h3>Movement</h3>
+          <p>Guided asana practice builds the mind-body connection, releasing stored tension and opening pathways for prana to flow freely.</p>
+        </div>
+        <div class="journey-step-dot">✦</div>
+      </div>
+      <div class="journey-step reveal">
+        <div class="journey-step-dot">✦</div>
+        <div class="journey-step-content">
+          <div class="journey-step-num">Stage 04</div>
+          <h3>Strength</h3>
+          <p>Progressive practice builds physical strength, resilience, and confidence — in your body and in every area of your life.</p>
+        </div>
+      </div>
+      <div class="journey-step reveal">
+        <div class="journey-step-content">
+          <div class="journey-step-num">Stage 05</div>
+          <h3>Balance</h3>
+          <p>Physical and mental equilibrium emerge naturally — you find ease in postures that once felt impossible, and peace in moments that once felt chaotic.</p>
+        </div>
+        <div class="journey-step-dot">✦</div>
+      </div>
+      <div class="journey-step reveal">
+        <div class="journey-step-dot" style="background: var(--rose-gold);">✦</div>
+        <div class="journey-step-content">
+          <div class="journey-step-num">Stage 06</div>
+          <h3>Transformation</h3>
+          <p>The Sadhana is complete — yet never finished. You return to the mat renewed, carrying your practice into every breath, every step, every moment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <div class="section-tag" style="background:rgba(233,213,255,0.15); color:var(--rose-gold-light);">Our Studio</div>
+      <h2 class="section-title" style="color:white;">Life at Shri Yoga <span>Sadhana</span></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80" alt="Aerial Yoga"><div class="gallery-overlay"><span>+</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=500&q=80" alt="Group Class"><div class="gallery-overlay"><span>+</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="Meditation"><div class="gallery-overlay"><span>+</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=500&q=80" alt="Stretching"><div class="gallery-overlay"><span>+</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=500&q=80" alt="Wellness"><div class="gallery-overlay"><span>+</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="Community"><div class="gallery-overlay"><span>+</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="section-tag">Student Stories</div>
+      <h2 class="section-title">Lives <span>Transformed</span></h2>
+      <div class="rating-display">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">5.0</span>
+      </div>
+      <p class="review-count">Based on 66+ Google Reviews</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">I joined for the aerial yoga and stayed for everything else. My back pain of 7 years is almost completely gone. Shri Yoga Sadhana has genuinely changed my life.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PR</div>
+          <div><div class="author-name">Priya Rawat</div><div class="author-detail">Member since 2022 · Aerial Yoga</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">The instructors here are incredibly knowledgeable. I've tried many studios across Delhi, but the quality and personal attention at Shri Yoga Sadhana is unmatched.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AS</div>
+          <div><div class="author-name">Ankita Sharma</div><div class="author-detail">Member since 2021 · Power Yoga</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">I was nervous about aerial yoga at 52, but the teachers made me feel completely safe. I can now do inversions I never thought possible. Incredible studio!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MG</div>
+          <div><div class="author-name">Meera Gupta</div><div class="author-detail">Member since 2023 · Senior & Aerial</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">The Women's Wellness program helped me so much with my PCOS symptoms. I feel more in tune with my body than ever before. Cannot recommend this place enough.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">NK</div>
+          <div><div class="author-name">Neha Khanna</div><div class="author-detail">Member since 2022 · Women's Wellness</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Lost 12 kg in 4 months while gaining so much strength and flexibility. The meditation sessions have also completely transformed my relationship with stress.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RS</div>
+          <div><div class="author-name">Rahul Singh</div><div class="author-detail">Member since 2023 · Power Yoga</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Best decision I made this year. The aerial yoga class is like nothing else in Rohini. The studio feels premium, calming, and welcoming all at once. Five stars, absolutely.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">DV</div>
+          <div><div class="author-name">Divya Verma</div><div class="author-detail">Member since 2024 · Aerial Yoga</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="instagram-section" id="instagram">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Follow Our Journey</div>
+      <h2 class="section-title">Our <span>Community</span></h2>
+      <p class="section-body" style="margin:0 auto;">Daily inspiration, aerial yoga reels, transformation stories, and community moments.</p>
+    </div>
+    <div class="instagram-grid reveal">
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=300&q=80" alt="Yoga"><div class="insta-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=300&q=80" alt="Yoga"><div class="insta-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=300&q=80" alt="Yoga"><div class="insta-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=300&q=80" alt="Yoga"><div class="insta-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1506505927537-3d9cf8ef5b2f?w=300&q=80" alt="Yoga"><div class="insta-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></div>
+      <div class="insta-item"><img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=300&q=80" alt="Yoga"><div class="insta-overlay"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></div>
+    </div>
+    <a href="https://instagram.com/shriyogasadhana" target="_blank" class="instagram-handle reveal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @shriyogasadhana
+    </a>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location-section" id="location">
+  <div class="container">
+    <div class="location-grid">
+      <div class="map-frame reveal-left">
+        <iframe src="https://maps.google.com/maps?q=Shri+Yoga+Sadhana+Rohini+Delhi&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="reveal-right">
+        <div class="section-tag">Visit Us</div>
+        <h3>Find Your <span style="color:var(--plum); font-style:italic;">Sanctuary</span></h3>
+        <div class="address-block">
+          <p>
+            <strong>Shri Yoga Sadhana Studio</strong><br>
+            1st Floor, Plot No. 1010-A<br>
+            Above Aqualite Showroom<br>
+            Near SBI Bank, Pooth Kalan<br>
+            Rohini, Delhi – 110085
+          </p>
+        </div>
+        <div style="background:white; border-radius:16px; padding:1.2rem 2rem; margin-bottom:1.5rem; border:1px solid rgba(91,42,134,0.1);">
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em;">Studio Hours</p>
+          <p style="font-size:0.9rem; color:var(--charcoal-light); line-height:2;">
+            Morning Batch: 6:00 AM – 9:00 AM<br>
+            Evening Batch: 5:00 PM – 8:30 PM<br>
+            Sunday: 7:00 AM – 11:00 AM
+          </p>
+        </div>
+        <div class="location-btns">
+          <a href="https://maps.app.goo.gl/vHFufQdx4x7Cx3NFA" target="_blank" class="loc-btn loc-btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Get Directions
+          </a>
+          <a href="tel:+919999999999" class="loc-btn loc-btn-call">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            Call Now
+          </a>
+          <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20information%20about%20yoga%20and%20aerial%20yoga%20classes." class="loc-btn loc-btn-wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="hero-eyebrow" style="color:var(--rose-gold-light);">Begin Today</div>
+      <h2>Your First Class is<br><span>On Us</span></h2>
+      <p>Join over 1,500 students who have transformed their bodies, minds, and lives at Shri Yoga Sadhana. Your journey begins with a single breath.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20to%20book%20a%20FREE%20trial%20class." class="btn-primary" style="font-size:1rem; padding:1rem 2.5rem;">Book Free Trial Class</a>
+        <a href="tel:+919999999999" class="btn-outline" style="font-size:1rem; padding:1rem 2.5rem;">Call To Enquire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-text">Shri Yoga Sadhana</span>
+      <p>A premium yoga studio in Rohini, Delhi — where ancient wisdom meets modern movement. Transforming lives through aerial yoga, mindfulness, and holistic wellness since 2018.</p>
+      <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+        <a href="https://instagram.com/shriyogasadhana" target="_blank" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.6); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='var(--rose-gold)'; this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.color='rgba(255,255,255,0.6)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/919999999999" target="_blank" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.6); text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='#25D366'; this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.color='rgba(255,255,255,0.6)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#programs">Traditional Yoga</a></li>
+        <li><a href="#aerial">Aerial Yoga</a></li>
+        <li><a href="#programs">Power Yoga</a></li>
+        <li><a href="#programs">Meditation</a></li>
+        <li><a href="#programs">Pranayama</a></li>
+        <li><a href="#programs">Women's Wellness</a></li>
+        <li><a href="#programs">Senior Yoga</a></li>
+        <li><a href="#programs">Therapeutic Yoga</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#location">Find Us</a></li>
+        <li><a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20to%20book%20a%20trial%20class.">Book Trial Class</a></li>
+        <li><a href="tel:+919999999999">Call: +91 99999 99999</a></li>
+      </ul>
+      <h4 style="margin-top:1.5rem;">Address</h4>
+      <p style="font-size:0.82rem; line-height:1.9; color:rgba(255,255,255,0.45);">1st Floor, Plot No. 1010-A<br>Above Aqualite Showroom<br>Pooth Kalan, Rohini<br>Delhi – 110085</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Shri Yoga Sadhana Studio, Rohini. All rights reserved. | Crafted with ♥ in Delhi</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20information%20about%20yoga%20and%20aerial%20yoga%20classes." class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <a href="#home" class="mnav-item active">
+      <span class="mnav-icon">🏠</span>
+      <span class="mnav-label">Home</span>
+    </a>
+    <a href="#programs" class="mnav-item">
+      <span class="mnav-icon">🧘</span>
+      <span class="mnav-label">Programs</span>
+    </a>
+    <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20to%20book%20a%20trial%20class." class="mnav-item mnav-book">
+      <span class="mnav-icon">📅</span>
+      <span class="mnav-label">Book Trial</span>
+    </a>
+    <a href="tel:+919999999999" class="mnav-item">
+      <span class="mnav-icon">📞</span>
+      <span class="mnav-label">Call</span>
+    </a>
+    <a href="https://wa.me/919999999999?text=Hello%20Shri%20Yoga%20Sadhana%20Studio%2C%20I%20would%20like%20information%20about%20yoga%20and%20aerial%20yoga%20classes." class="mnav-item">
+      <span class="mnav-icon">💬</span>
+      <span class="mnav-label">WhatsApp</span>
+    </a>
+  </div>
+</nav>
+
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Benefits hover
+  document.querySelectorAll('.benefit-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      document.querySelectorAll('.benefit-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+
+  // Gallery lightbox (simple)
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.querySelector('img').src;
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer;';
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:12px;object-fit:contain;';
+      overlay.appendChild(img);
+      overlay.addEventListener('click', () => overlay.remove());
+      document.body.appendChild(overlay);
+    });
+  });
+
+  // Active mobile nav
+  const sections = document.querySelectorAll('section[id], div[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    document.querySelectorAll('.mnav-item').forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  // Staggered reveal delay
+  document.querySelectorAll('.programs-grid .reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.08) + 's';
+  });
+  document.querySelectorAll('.testimonials-grid .reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.1) + 's';
+  });
+</script>
+</body>
+</html>
